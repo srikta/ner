@@ -4,6 +4,11 @@ import spacy
 from spacy import displacy
 nlp = spacy.load("en_core_web_sm")
 
+import subprocess
+@st.cache_resource
+def download_en_core_web_sm():
+    subprocess.run(["python","-m","spacy","download","en_core_web_sm"])
+    
 st.title("Named Entity Recognition")
 
 if st.button("About"):
